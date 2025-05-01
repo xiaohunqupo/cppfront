@@ -561,7 +561,7 @@ private:
         std::cerr << ": " << msg;
     }
     std::cerr << "\n";
-    std::terminate();
+    std::exit(EXIT_FAILURE);
 }
 
 auto inline cpp2_default = contract_group(
@@ -1328,7 +1328,7 @@ constexpr auto type_name() -> std::string_view {
         err += std::string{" and the message \""} + msg + "\"";
     }
     type_safety.report_violation( err.c_str() );
-    std::terminate();
+    std::exit(EXIT_FAILURE);
 #else
     throw CPP2_FORWARD(x);
 #endif
